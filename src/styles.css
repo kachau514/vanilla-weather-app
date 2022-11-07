@@ -15,12 +15,14 @@ footer {
   background-color: white;
   margin-top: 40px;
   padding: 40px 0;
-  border-radius: 5%;
+  border-radius: 5px;
 }
 .current-day {
+  margin-bottom: 20px;
 }
 
 .weather-forecast {
+  margin: 20px 0;
 }
 
 .day {
