@@ -1,9 +1,8 @@
 body {
-  background-color: aqua;
+  background-color: rgb(230, 173, 194);
 }
 
 h1 {
-  background-color: red;
 }
 
 h2 {
@@ -13,7 +12,10 @@ footer {
 }
 
 .weather-box {
-  background-color: antiquewhite;
+  background-color: white;
+  margin-top: 40px;
+  padding: 40px 0;
+  border-radius: 5%;
 }
 .current-day {
 }
