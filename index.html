@@ -27,11 +27,36 @@
             placeholder="Enter a city name"
           />
           <small id="cityHelp" class="form-text text-muted"
-            >Get the current weather forecast by clicking Submit</small
+            >Get the current weather forecast by clicking Search</small
           >
         </div>
-        <button type="submit" class="btn btn-primary">Click me</button>
+        <button type="submit" class="btn btn-primary">Search</button>
       </form>
+      <!--Current Day-->
+      <div class="row current-day">
+        <div class="col">
+          <h2>San Francisco</h2>
+          Sunday 22:46, broken clouds<br />
+          Humidity: 81%, Wind: 8.75km/h
+        </div>
+        <div class="col"><h1>🌦️ 12°C</h1></div>
+      </div>
+      <!--Weather forecast-->
+      <div class="row weather-forecast">
+        <div class="col">
+          <div class="row day">
+            <div class="col">SUN</div>
+          </div>
+          <div class="row icon">
+            <div class="col">☀️</div>
+          </div>
+          <div class="row temps">
+            <div class="col temp-hi">21°C</div>
+            <div class="col temp-lo">12°C</div>
+          </div>
+        </div>
+      </div>
+
       <footer>
         This project was coded by An Chau and is
         <a
