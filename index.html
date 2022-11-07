@@ -18,19 +18,25 @@
       <h1>Weather Me App</h1>
       <!--Begin form-->
       <form>
-        <div class="form-inline">
-          <input
-            type="search"
-            class="form-control"
-            id="city-input"
-            aria-described="cityHelp"
-            placeholder="Enter a city name"
-          />
-          <small id="cityHelp" class="form-text text-muted"
-            >Get the current weather forecast by clicking Search</small
-          >
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="search"
+                class="form-control"
+                id="city-input"
+                aria-described="cityHelp"
+                placeholder="Enter a city name"
+              />
+              <small id="cityHelp" class="form-text text-muted"
+                >Get the current weather forecast by clicking Search</small
+              >
+            </div>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
       </form>
       <!--Current Day-->
       <div class="row current-day">
