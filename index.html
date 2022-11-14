@@ -17,10 +17,10 @@
   <body>
     <div class="container">
       <div class="row justify-content-center weather-box">
-        <div class="col-8">
+        <div class="col-10">
           <h1>Weather Me App</h1>
           <!--Begin form-->
-          <form>
+          <form id="search-form">
             <div class="row justify-content-center">
               <div class="col">
                 <div class="form-group">
@@ -30,6 +30,7 @@
                     id="city-input"
                     aria-described="cityHelp"
                     placeholder="Enter a city name"
+                    autocomplete="off"
                   />
                   <small id="cityHelp" class="form-text text-muted"
                     >Get the current weather forecast by clicking Search</small
@@ -43,20 +44,20 @@
           </form>
           <!--Current Day-->
           <div class="row current-day justify-content-center">
-            <div class="col-md">
+            <div class="col-lg">
               <div class="row">
-                <div class="col"><h2 id="current-city"></h2></div>
+                <div class="col-lg"><h2 id="current-city"></h2></div>
               </div>
               <div class="row">
-                <div class="col" id="current-date"></div>
-                <div class="col" id="current-description"></div>
+                <div class="col-lg" id="current-date"></div>
+                <div class="col-lg" id="current-description"></div>
               </div>
               <div class="row">
-                <div class="col" id="current-humidity"></div>
-                <div class="col" id="current-wind"></div>
+                <div class="col-lg" id="current-humidity"></div>
+                <div class="col-lg" id="current-wind"></div>
               </div>
             </div>
-            <div class="col-md">
+            <div class="col-lg">
               <h1>
                 <img id="current-icon" src="" alt="" />
                 <span id="current-temp"></span><span id="current-unit"></span>

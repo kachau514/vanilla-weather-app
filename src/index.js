@@ -1,9 +1,21 @@
+/* const date = new Date("October 15, 2025 05:04:00");
+
+const minutes = String(date.getMinutes()).padStart(2, "0");
+console.log(minutes); // 👉️ 04 */
+
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function displayGeolocTemp(response) {
+  displayDate();
   let city = response.data.city;
+  /*   let cityTime = response.data.time;
+  let cityDate = new Date(cityTime);
+  let day = days[cityDate.getDay()];
+  let hour = cityDate.getHours();
+  let minutes = String(cityDate.getMinutes()).padStart(2, "0");
+  let displayedDate = `${day} ${hour}:${minutes}`; */
   let country = response.data.country;
   let iconUrl = response.data.condition.icon_url;
   let description = response.data.condition.description;
@@ -23,6 +35,7 @@ function displayGeolocTemp(response) {
   let altElement = document.querySelector("#current-icon");
   let windElement = document.querySelector("#current-wind");
   let humidityElement = document.querySelector("#current-humidity");
+  let dateElement = document.querySelector("#current-date");
 
   cityElement.innerHTML = `${city}, ${country}`;
   iconElement.setAttribute("src", iconUrl);
@@ -45,11 +58,25 @@ function retrieveGeolocPosition(position) {
 }
 function displayDate() {
   let dateArea = document.querySelector("#current-date");
-  dateArea.innerHTML = `${time}`;
+  dateArea.innerHTML = `Last updated: ${time}`;
 }
 
 function retrievePosition() {
   navigator.geolocation.getCurrentPosition(retrieveGeolocPosition);
+}
+
+function search(city) {
+  let apiKey = "240eof8530cet06fbe36f1fa5d44040b";
+  let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
+  let unit = "metric";
+  let apiUrl = `${apiEndpoint}?query=${city}&key=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayGeolocTemp);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
 
 let now = new Date();
@@ -64,8 +91,10 @@ let days = [
 ];
 let day = days[now.getDay()];
 let hour = now.getHours();
-let minutes = now.getMinutes();
+let minutes = String(now.getMinutes()).padStart(2, "0");
 let time = `${day} ${hour}:${minutes}`;
 
-displayDate();
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
 retrievePosition();
