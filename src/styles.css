@@ -18,18 +18,27 @@ footer {
   border-radius: 5px;
 }
 .current-day {
-  margin-bottom: 20px;
+  margin: 20px;
+}
+
+.current-day .active {
+  color: black;
+  cursor: default;
+}
+
+.current-day .active:hover {
+  text-decoration: none;
+}
+
+.mainTemperature {
+  font-size: 18px;
 }
 
 .weather-forecast {
   margin: 20px 0;
 }
 
-.day {
-}
-
-.icon {
-}
-
-.temps {
+#current-temp {
+  font-size: 32px;
+  font-weight: bold;
 }

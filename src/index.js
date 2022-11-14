@@ -1,8 +1,3 @@
-/* const date = new Date("October 15, 2025 05:04:00");
-
-const minutes = String(date.getMinutes()).padStart(2, "0");
-console.log(minutes); // 👉️ 04 */
-
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -10,37 +5,30 @@ function capitalizeFirstLetter(string) {
 function displayGeolocTemp(response) {
   displayDate();
   let city = response.data.city;
-  /*   let cityTime = response.data.time;
-  let cityDate = new Date(cityTime);
-  let day = days[cityDate.getDay()];
-  let hour = cityDate.getHours();
-  let minutes = String(cityDate.getMinutes()).padStart(2, "0");
-  let displayedDate = `${day} ${hour}:${minutes}`; */
   let country = response.data.country;
   let iconUrl = response.data.condition.icon_url;
   let description = response.data.condition.description;
   let descriptionFormatted = capitalizeFirstLetter(description);
   let temperature = response.data.temperature.current;
   let tempFormatted = Math.round(temperature);
-  let tempUnit = "°C";
   let windUnit = "km/h";
   let wind = response.data.wind.speed;
   let humidity = response.data.temperature.humidity;
+  celsiusTemperature = temperature;
 
   let cityElement = document.querySelector("#current-city");
   let iconElement = document.querySelector("#current-icon");
   let tempElement = document.querySelector("#current-temp");
-  let unitElement = document.querySelector("#current-unit");
+
   let descriptionElement = document.querySelector("#current-description");
   let altElement = document.querySelector("#current-icon");
   let windElement = document.querySelector("#current-wind");
   let humidityElement = document.querySelector("#current-humidity");
-  let dateElement = document.querySelector("#current-date");
 
   cityElement.innerHTML = `${city}, ${country}`;
   iconElement.setAttribute("src", iconUrl);
   tempElement.innerHTML = tempFormatted;
-  unitElement.innerHTML = tempUnit;
+
   descriptionElement.innerHTML = descriptionFormatted;
   altElement.setAttribute("alt", description);
   windElement.innerHTML = `Wind: ${wind} ${windUnit}`;
@@ -79,6 +67,23 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
 let now = new Date();
 let days = [
   "Sunday",
@@ -93,8 +98,15 @@ let day = days[now.getDay()];
 let hour = now.getHours();
 let minutes = String(now.getMinutes()).padStart(2, "0");
 let time = `${day} ${hour}:${minutes}`;
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 retrievePosition();

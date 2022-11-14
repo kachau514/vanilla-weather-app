@@ -17,7 +17,7 @@
   <body>
     <div class="container">
       <div class="row justify-content-center weather-box">
-        <div class="col-10">
+        <div class="col-8">
           <h1>Weather Me App</h1>
           <!--Begin form-->
           <form id="search-form">
@@ -44,91 +44,29 @@
           </form>
           <!--Current Day-->
           <div class="row current-day justify-content-center">
-            <div class="col-lg">
+            <div class="col-8">
               <div class="row">
-                <div class="col-lg"><h2 id="current-city"></h2></div>
-              </div>
-              <div class="row">
-                <div class="col-lg" id="current-date"></div>
-                <div class="col-lg" id="current-description"></div>
+                <div class="col-12"><h2 id="current-city"></h2></div>
               </div>
               <div class="row">
-                <div class="col-lg" id="current-humidity"></div>
-                <div class="col-lg" id="current-wind"></div>
+                <div class="col-6" id="current-date"></div>
+                <div class="col-6" id="current-description"></div>
+              </div>
+              <div class="row">
+                <div class="col-6" id="current-humidity"></div>
+                <div class="col-6" id="current-wind"></div>
               </div>
             </div>
-            <div class="col-lg">
-              <h1>
-                <img id="current-icon" src="" alt="" />
-                <span id="current-temp"></span><span id="current-unit"></span>
-              </h1>
-            </div>
-          </div>
-          <!--Weather forecast-->
-          <div class="row justify-content-center weather-forecast">
-            <!--Day Card 1-->
-            <div class="col-sm border border-primary rounded">
-              <div class="row day">
-                <div class="col">SUN</div>
-              </div>
-              <div class="row icon">
-                <div class="col">☀️</div>
-              </div>
-              <div class="row justify-content-center temps">
-                <div class="col temp-hi">21°C</div>
-                <div class="col temp-lo">12°C</div>
-              </div>
-            </div>
-            <!--Day Card 2-->
-            <div class="col-sm border border-primary rounded">
-              <div class="row day">
-                <div class="col">SUN</div>
-              </div>
-              <div class="row icon">
-                <div class="col">☀️</div>
-              </div>
-              <div class="row justify-content-center temps">
-                <div class="col temp-hi" id="tempFirstDay">21°C</div>
-                <div class="col temp-lo">12°C</div>
-              </div>
-            </div>
-            <!--Day Card 3-->
-            <div class="col-sm border border-primary rounded">
-              <div class="row day">
-                <div class="col">MON</div>
-              </div>
-              <div class="row icon">
-                <div class="col">☀️</div>
-              </div>
-              <div class="row justify-content-center temps">
-                <div class="col temp-hi">21°C</div>
-                <div class="col temp-lo">12°C</div>
-              </div>
-            </div>
-            <!--Day Card 4-->
-            <div class="col-sm border border-primary rounded">
-              <div class="row day">
-                <div class="col">TUE</div>
-              </div>
-              <div class="row icon">
-                <div class="col">☀️</div>
-              </div>
-              <div class="row justify-content-center temps">
-                <div class="col temp-hi">21°C</div>
-                <div class="col temp-lo">12°C</div>
-              </div>
-            </div>
-            <!--Day Card 5-->
-            <div class="col-sm border border-primary rounded">
-              <div class="row day">
-                <div class="col">WED</div>
-              </div>
-              <div class="row icon">
-                <div class="col">☀️</div>
-              </div>
-              <div class="row justify-content-center temps">
-                <div class="col temp-hi">21°C</div>
-                <div class="col temp-lo">12°C</div>
+            <div class="col-4 mainTemperature">
+              <div class="row">
+                <div class="col-6">
+                  <span id="current-temp"></span
+                  ><a href="#" id="celsius-link" class="active">°C</a> |
+                  <a href="#" id="fahrenheit-link">°F</a>
+                </div>
+                <div class="col-4">
+                  <img id="current-icon" src="" alt="" />
+                </div>
               </div>
             </div>
           </div>
