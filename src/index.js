@@ -1,7 +1,13 @@
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function displayGeolocTemp(response) {
   let city = response.data.city;
+  let country = response.data.country;
   let iconUrl = response.data.condition.icon_url;
   let description = response.data.condition.description;
+  let descriptionFormatted = capitalizeFirstLetter(description);
   let temperature = response.data.temperature.current;
   let tempFormatted = Math.round(temperature);
   let tempUnit = "°C";
@@ -18,11 +24,11 @@ function displayGeolocTemp(response) {
   let windElement = document.querySelector("#current-wind");
   let humidityElement = document.querySelector("#current-humidity");
 
-  cityElement.innerHTML = city;
+  cityElement.innerHTML = `${city}, ${country}`;
   iconElement.setAttribute("src", iconUrl);
   tempElement.innerHTML = tempFormatted;
   unitElement.innerHTML = tempUnit;
-  descriptionElement.innerHTML = description;
+  descriptionElement.innerHTML = descriptionFormatted;
   altElement.setAttribute("alt", description);
   windElement.innerHTML = `Wind: ${wind} ${windUnit}`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
